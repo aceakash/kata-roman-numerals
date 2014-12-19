@@ -9,7 +9,9 @@ var ROMAN_SYMBOLS = {
 };
 
 exports.fromRoman = function (roman) {
-  return ROMAN_SYMBOLS[roman];
+  if (roman.length === 1)
+    return ROMAN_SYMBOLS[roman];
+  return roman.length * ROMAN_SYMBOLS[roman[0]];
 };
 
 exports.toRoman = function () {
