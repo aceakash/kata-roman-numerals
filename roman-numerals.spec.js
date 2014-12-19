@@ -28,7 +28,7 @@ describe('RomanNumerals', function () {
       expect(fromRoman('MMMM')).toBe(4000);
     });
 
-    it('converts additive symbols', function () {
+    it('converts additive roman numerals', function () {
       expect(fromRoman('VI')).toBe(6);
       expect(fromRoman('VII')).toBe(7);
       expect(fromRoman('VIII')).toBe(8);
@@ -45,6 +45,15 @@ describe('RomanNumerals', function () {
       expect(fromRoman('XC')).toBe(90);
       expect(fromRoman('CD')).toBe(400);
       expect(fromRoman('CM')).toBe(900);
+    });
+    
+    it('converts anything', function () {
+      expect(fromRoman('XIV')).toBe(14);
+      expect(fromRoman('XIX')).toBe(19);
+      expect(fromRoman('XXIV')).toBe(24);
+      expect(fromRoman('XCIV')).toBe(94);
+      expect(fromRoman('CMXL')).toBe(940);
+      expect(fromRoman('CMDCXLIV')).toBe(1544);
     });
   });
 });
