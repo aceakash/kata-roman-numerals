@@ -53,7 +53,35 @@ describe('RomanNumerals', function () {
       expect(fromRoman('XXIV')).toBe(24);
       expect(fromRoman('XCIV')).toBe(94);
       expect(fromRoman('CMXL')).toBe(940);
-      expect(fromRoman('CMDCXLIV')).toBe(1544);
+      expect(fromRoman('MDXLIV')).toBe(1544);
+    });
+  });
+
+  describe('toRoman', function () {
+    var toRoman = RomanNumerals.toRoman;
+
+    it('converts to single symbols', function () {
+      expect(toRoman(1)).toBe('I');
+      expect(toRoman(5)).toBe('V');
+      expect(toRoman(10)).toBe('X');
+      expect(toRoman(50)).toBe('L');
+      expect(toRoman(100)).toBe('C');
+      expect(toRoman(500)).toBe('D');
+      expect(toRoman(1000)).toBe('M');
+    });
+
+    it('converts to strings', function () {
+      expect(toRoman(3)).toBe('III');
+      expect(toRoman(4)).toBe('IV');
+      expect(toRoman(8)).toBe('VIII');
+      expect(toRoman(9)).toBe('IX');
+      expect(toRoman(14)).toBe('XIV');
+      expect(toRoman(18)).toBe('XVIII');
+      expect(toRoman(19)).toBe('XIX');
+      expect(toRoman(30)).toBe('XXX');
+      expect(toRoman(940)).toBe('CMXL');
+      expect(toRoman(1544)).toBe('MDXLIV');
+      expect(toRoman(1666)).toBe('MDCLXVI');
     });
   });
 });

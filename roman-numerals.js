@@ -28,6 +28,25 @@ exports.fromRoman = function (roman) {
   return total;
 };
 
-exports.toRoman = function () {
+exports.toRoman = function (number) {
+  var sortedRomanSymbols = ROMAN_SYMBOLS.slice(0).sort(function (a, b) {
+    return b.value - a.value;
+  });
 
+  var roman = '';
+
+  var findHighestFittingSymbol = function (interimNumber) {
+    for (var i = 0; i < sortedRomanSymbols.length; i++) {
+      if (sortedRomanSymbols[i].value <= interimNumber) {
+        return sortedRomanSymbols[i];
+      }
+    }
+  };
+
+  while(number !== 0) {
+    var bestFit = findHighestFittingSymbol(number);
+    roman += bestFit.symbol;
+    number -= bestFit.value;
+  }
+  return roman;
 };
