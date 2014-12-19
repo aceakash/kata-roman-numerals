@@ -47,12 +47,12 @@ describe('RomanNumerals', function () {
         expect(fromRoman('II')).toBe(2);
       });
 
-      it('converts XX to 20', function () {
-        expect(fromRoman('XX')).toBe(20);
+      it('converts XXX to 30', function () {
+        expect(fromRoman('XXX')).toBe(30);
       });
 
-      it('converts MM to 2000', function () {
-        expect(fromRoman('MM')).toBe(2000);
+      it('converts MMMM to 4000', function () {
+        expect(fromRoman('MMMM')).toBe(4000);
       });
     });
   });
