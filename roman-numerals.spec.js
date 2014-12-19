@@ -37,5 +37,14 @@ describe('RomanNumerals', function () {
       expect(fromRoman('XVIII')).toBe(18);
       expect(fromRoman('MDCLXVI')).toBe(1666);
     });
+
+    it('converts subtractive pairs like IV, IX etc', function () {
+      expect(fromRoman('IV')).toBe(4);
+      expect(fromRoman('IX')).toBe(9);
+      expect(fromRoman('XL')).toBe(40);
+      expect(fromRoman('XC')).toBe(90);
+      expect(fromRoman('CD')).toBe(400);
+      expect(fromRoman('CM')).toBe(900);
+    });
   });
 });
