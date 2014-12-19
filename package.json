@@ -1,0 +1,17 @@
+{
+  "name": "kata-roman-numerals",
+  "version": "1.0.0",
+  "description": "JavaScript kata - Roman Numeral converter",
+  "main": "main.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Akash Kurdekar <npm@kurdekar.com> (http://untilfalse.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jasmine": "^1.0.1",
+    "gulp-jshint": "^1.9.0",
+    "jshint-stylish": "^1.0.0"
+  }
+}
