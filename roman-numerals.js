@@ -1,4 +1,4 @@
-var ROMAN_SYMBOLS = [
+var romanSymbols = [
   {symbol: 'IV', value: 4},
   {symbol: 'IX', value: 9},
   {symbol: 'XL', value: 40},
@@ -15,10 +15,22 @@ var ROMAN_SYMBOLS = [
   {symbol: 'M', value: 1000}
 ];
 
+var sortedRomanSymbols = romanSymbols.slice(0).sort(function (a, b) {
+  return b.value - a.value;
+});
+
+function findLargestFittingSymbol(number) {
+  for (var i = 0; i < sortedRomanSymbols.length; i++) {
+    if (sortedRomanSymbols[i].value <= number) {
+      return sortedRomanSymbols[i];
+    }
+  }
+}
+
 exports.fromRoman = function (roman) {
   var total = 0;
 
-  ROMAN_SYMBOLS.forEach(function (symbol) {
+  romanSymbols.forEach(function (symbol) {
     var regex = new RegExp(symbol.symbol, 'g');
     var matches = roman.match(regex) || [];
     var count = matches.length;
@@ -29,22 +41,10 @@ exports.fromRoman = function (roman) {
 };
 
 exports.toRoman = function (number) {
-  var sortedRomanSymbols = ROMAN_SYMBOLS.slice(0).sort(function (a, b) {
-    return b.value - a.value;
-  });
-
   var roman = '';
 
-  var findHighestFittingSymbol = function (interimNumber) {
-    for (var i = 0; i < sortedRomanSymbols.length; i++) {
-      if (sortedRomanSymbols[i].value <= interimNumber) {
-        return sortedRomanSymbols[i];
-      }
-    }
-  };
-
-  while(number !== 0) {
-    var bestFit = findHighestFittingSymbol(number);
+  while (number !== 0) {
+    var bestFit = findLargestFittingSymbol(number);
     roman += bestFit.symbol;
     number -= bestFit.value;
   }
